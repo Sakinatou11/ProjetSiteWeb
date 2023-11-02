@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nom de votre site</title>
     <link rel="stylesheet" type="text/css" href="model.css">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;1,300&#038;family=Merriweather:ital,wght@0,300;1,300&#038;display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;1,300&#038;family=Merriweather:ital,wght@0,300;1,300&#038;display=swap" media="print" onload="this.media='all'" />
+
 	<script>
         document.addEventListener("DOMContentLoaded", function() {
             setTimeout(function() {
