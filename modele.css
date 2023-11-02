@@ -1,56 +1,15 @@
-/* style.css */
-
-.container {
-    background-color: #f2f2f2;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 20px auto;
-    width: 300px;
+.italique {
+    font-style: italic;
+    font-weight: bold; /* Texte en gras (facultatif) */
+    font-size: 2em; /* Taille du texte (ajustez selon vos préférences) */
+    color: #ff6600; /* Couleur de votre choix */
+    cursor: pointer; /* Curseur en forme de main au survol (facultatif) */
+    text-align: center; /* Centrer le texte */
+    margin-top: 20px; /* Marge supérieure (ajustez selon vos besoins) */
+    animation: fadeIn 2s; /* Animation d'apparition */
 }
 
-h1 {
-    text-align: center;
-    color: #333;
-}
-
-.login-form {
-    background-color: #fff;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 20px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-    color: #333;
-}
-
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.btn {
-    display: block;
-    background-color: #0074cc;
-    color: #fff;
-    padding: 10px 20px;
-    text-align: center;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #0056a3;
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
