@@ -1,24 +1,15 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="fr">
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Liste de Jeux</title>
+    <title>Exercice Bootstrap</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <?php include("header.inc.php"); ?>
-    <?php include("menu.inc.php"); ?>
-    <main style="text-align: center;">
-        <!-- Contenu de la page d'accueil -->
-        <p id="lets-play">Welcome to LET'S PLAY !</p1>
-        <p id="lets-play">Bienvenue sur LET'S PLAY !</p2>
-        <p id="lets-play">Dal lein akk Diam si LET'S PLAY !</p3>
-        <p id="lets-play">This is the homepage of our beloved website !</p>
-    </main>
-    
+  </head>
+  <body>
+    <h1 class="couleur">Exercice Bootstrap</h1>
     <div class="container">
         <div class="row">
             <div class="col-md-3">
@@ -88,17 +79,6 @@
                     <p>Description: Jeu de stratégie amusant où vous défendez votre jardin contre des zombies.</p>
                 </div>
             </div>
-        </div>
-        <main style="text-align: center;">
-        <p id="lets-play">Do you want to see more ... ?</p>
-        <p id="lets-play"><a href="inscription.php">If you are new, register now here !</a></p>
-        </main>
-
-        
-
-    </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuB
-    <?php include("footer.inc.php"); ?>
-
-    <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>

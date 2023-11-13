@@ -19,9 +19,13 @@ include 'menu.inc.php';
             </div>
             <button type="submit" class="btn">Se connecter</button>
         </form>
+        
     </div>
+    <p id="lets-play"><a href="inscription.php">If you are new, register now here !</a></p>
+        </main>
 </div>
 
 <?php
 include 'footer.inc.php';
 ?>
+
