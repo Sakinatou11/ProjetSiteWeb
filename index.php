@@ -93,6 +93,21 @@
         <p id="lets-play">Do you want to see more ... ?</p>
         <p id="lets-play"><a href="inscription.php">If you are new, register now here !</a></p>
         </main>
+        <!-- Inclusion du formulaire de connexion -->
+            <?php include_once('login.php'); ?>
+
+        <h1>Bienvenue sur notre site de jeux vidéo !</h1>
+
+        <!-- Si l'utilisateur existe, on le redirige vers tous les jeux -->
+        <?php if(isset($loggedUser)): ?>
+            <?php header('Location: jeux.php'); ?>
+        <?php else: ?>
+            <!-- Si l'utilisateur n'est pas connecté, il ne peut consulter la page de jeux -->
+            <p>Connectez-vous pour accéder à tous les jeux.</p>
+        <?php endif; ?>
+        </div>
+
+        <?php include_once('footer.php'); ?>
 
         
 
@@ -102,3 +117,4 @@
     <?php include("footer.inc.php"); ?>
 
     <body>
+    </html>

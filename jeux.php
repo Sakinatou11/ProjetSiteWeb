@@ -1,4 +1,14 @@
+<?php
+session_start();
 
+// Vérifie si l'utilisateur est connecté
+if (!isset($_SESSION['user_id'])) {
+    // Utilisateur non connecté, redirigez-le vers la page d'accueil
+    header("Location: index.php");
+    exit();
+}
+
+?>
 <!doctype html>
 <html lang="fr">
   <head>
@@ -9,7 +19,12 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1 class="couleur">Exercice Bootstrap</h1>
+  <main style="text-align: center;">
+  <h1 class="couleur">Plus de cent jeux et des parties de feu ! </h1>
+        
+    </main>
+    
+    
     <div class="container">
         <div class="row">
             <div class="col-md-3">
@@ -32,8 +47,8 @@
 
             <div class="col-md-3">
                 <div class="jeu">
-                    <a href="connexion.php"><img src="https://gaming-cdn.com/img/products/7072/pcover/1400x500/7072.jpg?v=1683557192" alt="Hogwards Legacy" class="img-fluid"></a>
-                    <h3><a href="connexion.php">Hogwarts Legacy</a></h3>
+                    <a href="connexion.php"><img src="https://tse2.mm.bing.net/th?id=OIP.uFtfhe_tyHP_Nay1GaoBSQHaGv&pid=Api&P=0&h=180" alt="Super Mario" class="img-fluid"></a>
+                    <h3><a href="connexion.php">Mario Kart</a></h3>
                     <p>Catégorie: Aventure</p>
                     <p>Description: Jeu de stratégie amusant où vous défendez votre jardin contre des zombies.</p>
                 </div>
@@ -79,6 +94,8 @@
                     <p>Description: Jeu de stratégie amusant où vous défendez votre jardin contre des zombies.</p>
                 </div>
             </div>
+            
+            <p id="lets-play"><a href="connexion.php">Connectez vous pour en savoir plus !</a></p>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
 </html>

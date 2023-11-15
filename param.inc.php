@@ -1,6 +1,6 @@
 <?php
   $host="localhost";
-  $login="root";
-  $passwd="root";
+  $login="grp_6_1";
+  $passwd="mFe7yhBQN5kO";
   $dbname="amphi2";
 ?>
