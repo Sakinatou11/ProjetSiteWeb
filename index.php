@@ -1,3 +1,4 @@
+<?php include_once('login.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -94,7 +95,7 @@
         <p id="lets-play"><a href="inscription.php">If you are new, register now here !</a></p>
         </main>
         <!-- Inclusion du formulaire de connexion -->
-            <?php include_once('login.php'); ?>
+           
 
         <h1>Bienvenue sur notre site de jeux vidéo !</h1>
 

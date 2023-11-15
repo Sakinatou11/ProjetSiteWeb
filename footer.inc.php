@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <!-- Ajoutez vos balises meta, lien vers le style CSS, etc. ici -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Votre Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <!-- Ajoutez d'autres balises liées à votre style CSS ici -->
+   
     <style>
         body {
             min-height: 100vh;
@@ -19,9 +19,27 @@
         }
 
         footer {
-            background-color: #f8f9fa; /* Changez la couleur de fond selon vos préférences */
-            padding: 20px 0; /* Ajustez la marge intérieure selon vos préférences */
+            background-color: #f8f9fa;
+            padding: 20px 0;
             margin-top: auto;
+        }
+
+        footer p {
+            margin-bottom: 0;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        footer a {
+            text-decoration: none;
         }
     </style>
 </head>

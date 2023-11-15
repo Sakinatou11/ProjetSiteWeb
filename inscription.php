@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
     $titre = "Inscription";
     include 'header.inc.php';
     include 'menu.inc.php';
@@ -20,12 +20,12 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control " id="email" name="email" placeholder="Votre email..." required>
+            <label for="mail" class="form-label">Email</label>
+            <input type="mail" class="form-control " id="mail" name="mail" placeholder="Votre mail..." required>
         </div>
         <div class="col-md-6">
-            <label for="password" class="form-label">Mot de passe</label>
-            <input type="password" class="form-control " id="password" name="password" placeholder="Votre mot de passe..." required>
+            <label for="mot_de_passe" class="form-label">Mot de passe</label>
+            <input type="mot_de_passe" class="form-control " id="mot_de_passe" name="mot_de_passe" placeholder="Votre mot de passe..." required>
         </div>
         </div>
         <div class="row my-3">
