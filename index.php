@@ -1,4 +1,3 @@
-<?php include_once('login.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -14,9 +13,9 @@
     <?php include("menu.inc.php"); ?>
     <main style="text-align: center;">
         <!-- Contenu de la page d'accueil -->
-        <p id="lets-play">Welcome to LET'S PLAY !</p1>
-        <p id="lets-play">Bienvenue sur LET'S PLAY !</p2>
-        <p id="lets-play">Dal lein akk Diam si LET'S PLAY !</p3>
+        <p id="lets-play">Welcome to LET'S PLAY !</p>
+        <p id="lets-play">Bienvenue sur LET'S PLAY !</p>
+        <p id="lets-play">Dal lein akk Diam si LET'S PLAY !</p>
         <p id="lets-play">This is the homepage of our beloved website !</p>
     </main>
     
@@ -32,7 +31,7 @@
             </div>
 
             <div class="col-md-3">
-                <div class "jeu">
+                <div class ="jeu">
                     <a href="connexion.php"><img src="https://tse4.mm.bing.net/th?id=OIP.Me4-xBpjsIhYfLBhaHDcnQHaDg&pid=Api&P=0&h=180" alt="Twilight" class="img-fluid"></a>
                     <h3><a href="connexion.php">Twilight</a></h3>
                     <p>Catégorie: Stratégie</p>
@@ -99,23 +98,11 @@
 
         <h1>Bienvenue sur notre site de jeux vidéo !</h1>
 
-        <!-- Si l'utilisateur existe, on le redirige vers tous les jeux -->
-        <?php if(isset($loggedUser)): ?>
-            <?php header('Location: jeux.php'); ?>
-        <?php else: ?>
-            <!-- Si l'utilisateur n'est pas connecté, il ne peut consulter la page de jeux -->
-            <p>Connectez-vous pour accéder à tous les jeux.</p>
-        <?php endif; ?>
-        </div>
-
-        <?php include_once('footer.php'); ?>
-
-        
 
     </div>
     
-    <script src="https://cdn.jsdelivr.net/npm bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuB
+    <script src="https://cdn.jsdelivr.net/npm bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuB"></script>
     <?php include("footer.inc.php"); ?>
 
     <body>
-    </html>
+</html>

@@ -1,19 +1,27 @@
 <?php
 session_start();
 
-require_once("param.inc.php");
+//require_once("param.inc.php");
 
+/*
 $serveur = "moduleweb.esigelec.fr";
 $utilisateur = "grp_6_1";
 $mot_de_passe_bd = "mFe7yhBQN5kO";
 $baseDeDonnees = "bdd_6_1";
-
 $mysqli = new mysqli($serveur, $utilisateur, $mot_de_passe_bd, $baseDeDonnees);
 
 if ($mysqli->connect_error) {
     die('Erreur de connexion (' . $mysqli->connect_errno . ') '
         . $mysqli->connect_error);
 }
+*/
+  // Connexion :
+  require_once("param.inc.php");
+  $mysqli = new mysqli($host, $login, $passwd, $dbname);
+  if ($mysqli->connect_error) {
+      die('Erreur de connexion (' . $mysqli->connect_errno . ') '
+              . $mysqli->connect_error);
+  }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Vérifiez si toutes les données nécessaires sont présentes dans la requête POST
