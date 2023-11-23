@@ -1,37 +1,45 @@
 <?php
-session_start();
-$titre = "Inscription";
-include 'header.inc.php';
-include 'menu.inc.php';
+  session_start(); // Pour les messages
 
-// Vérifier si l'utilisateur est déjà inscrit
-if (isset($_SESSION['id_partie'])) {
-    $nom = $_POST['nom_joueur'];
-    $prenom = $_POST['prenom_joueur'];
+  // Contenu du formulaire :
+  $nom =  htmlentities($_POST['nom']);
+  $prenom = htmlentities($_POST['prenom']);
+  $jeu = htmlentities($_POST['jeu']);
 
-    // Connexion à la base de données
-    // Connexion :
-    require_once("param.inc.php");
-    $mysqli = new mysqli($host, $login, $passwd, $dbname);
-    if ($mysqli->connect_error) {
-        die('Erreur de connexion (' . $mysqli->connect_errno . ') '
-                . $mysqli->connect_error);
 
-    // Vérifier si le membre est déjà inscrit
-    $requete = $connexion->prepare('SELECT * FROM partie_a_venir WHERE nom_joueur = ? AND prenom_joueur = ?');
-    $requete->execute([$nom, $prenom]);
-    $resultat = $requete->rowCount();
+  // Connexion :
+  require_once("param.inc.php");
+  $mysqli = new mysqli($host, $login, $passwd, $dbname);
+  if ($mysqli->connect_error) {
+      die('Erreur de connexion (' . $mysqli->connect_errno . ') '
+              . $mysqli->connect_error);
+  }
 
-    if ($resultat > 0) {
-        // Membre déjà inscrit, afficher un message d'erreur
-        echo "Vous êtes déjà inscrit à cette partie.";
+  // Vérifier si l'utilisateur existe déjà
+  if ($stmt = $mysqli->prepare("SELECT * FROM partie_a_venir WHERE nom_jeu=? AND nom_joueur=? AND prenom_joueur=?")) {
+    $stmt->bind_param("sss",$jeu, $nom, $prenom);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if($stmt->num_rows > 0) {
+        $_SESSION['message'] = "Cet utilisateur est déjà inscrit pour ce jeu";
     } else {
-        // Ajouter le membre à la table "partie_a_venir"
-        $requete = $connexion->prepare('INSERT INTO partie_a_venir (nom_joueur, prenom_joueur, nom_jeu) VALUES (?, ?, ?)');
-        $requete->execute([$nom, $prenom, $_POST['jeu']]);
-        echo "Vous avez été inscrit avec succès à la partie.";
+        // L'utilisateur n'existe pas encore, enregistrement possible
+        if ($stmt = $mysqli->prepare("INSERT INTO partie_a_venir(nom_jeu, nom_joueur, prenom_joueur) VALUES (?,?, ?)")) {
+            $stmt->bind_param("sss",$jeu, $nom, $prenom);
+            if($stmt->execute()) {
+                $_SESSION['message'] = "Enregistrement réussi";
+            } else {
+                $_SESSION['message'] = "Impossible d'enregistrer";
+            }
+        }
     }
-}
+  } else {
+    $_SESSION['message'] = "Erreur lors de la recherche d'utilisateur";
+  }
+
+  // Redirection vers la page d'accueil ou autre :
+  header('Location: liste_membre_inscrit.php');
 ?>
 
 <div class="container">
