@@ -1,31 +1,35 @@
 <?php
-  session_start(); // Pour les massages
+session_start(); // Démarrer la session pour obtenir l'ID de l'utilisateur connecté
 
-  // Contenu du formulaire :
-  $souhait =  htmlentities($_POST['souhait']);
+$db_host = "localhost";
+$db_name = "sophie";
+$db_user = "root";
+$db_pass = "";
 
-    
+try {
+    // Se connecter à la base de données
+    $db = new PDO("mysql:host=$db_host;dbname=$db_name;charset=utf8", $db_user, $db_pass);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(PDOException $e) {
+    echo "Erreur de connexion à la base de données: " . $e->getMessage();
+    exit;
+}
 
-  // Connexion :
-  require_once("param.inc.php");
-  $mysqli = new mysqli($host, $login, $passwd, $dbname);
-  if ($mysqli->connect_error) {
-      die('Erreur de connexion (' . $mysqli->connect_errno . ') '
-              . $mysqli->connect_error);
-  }
+if (isset($_POST['souhait']) && !empty($_POST['souhait'])) {
+    $souhait = $_POST['souhait'];
+    $id_user = $_SESSION['id_user']; // Récupérer l'ID de l'utilisateur connecté depuis la session
 
-  // Attention, ici on ne vérifie pas si l'utilisateur existe déjà
-  if ($stmt = $mysqli->prepare("INSERT INTO souhait(id_souhait, id_user, souhait) VALUES (?, ?, ?)")) {
-    
-    $stmt->bind_param("iis",$id_souhait,$id_user, $souhait);
-    // Le message est mis dans la session, il est préférable de séparer message normal et message d'erreur.
-    if($stmt->execute()) {
-        $_SESSION['message'] = "Enregistrement réussi";
+    try {
+        // Préparer la requête d'insertion du souhait dans la table "souhait"
+        $query = $db->prepare("INSERT INTO souhait (id_user, souhait) VALUES (:id_user, :souhait)");
+        $query->bindParam(':id_user', $id_user);
+        $query->bindParam(':souhait', $souhait);
+        $query->execute();
 
-    } else {
-        $_SESSION['message'] =  "Impossible d'enregistrer";
+        echo "Le souhait a été ajouté avec succès!";
+    } catch(PDOException $e) {
+        echo "Erreur lors de l'insertion du souhait: " . $e->getMessage();
     }
-  }
-  // Redirection vers la page d'accueil :
-  header('Location: jeux.php');
+}
+header('Location: jeux.php');
 ?>
