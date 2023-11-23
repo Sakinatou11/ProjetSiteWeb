@@ -10,7 +10,7 @@ include 'menu.inc.php';
 <div class="container">
     <h1>Connexion</h1>
     <div class="login-form">
-        <form method="post" action="login.php">
+        <form method="post" action="tt_connexion.php">
             <div class="form-group">
                 <label for="mail">Nom d'utilisateur</label>
                 <input type="text" name="mail" id="mail" required>
